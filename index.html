@@ -1,0 +1,62 @@
+<style>
+    td {
+        background: pink;
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        font-size: 30px;
+        color: white;
+        transition: all 0.2s;
+        text-shadow: 1px 1px 3px grey;
+        border-radius: 35px;
+    }
+    td:hover {
+        background: palevioletred;
+        cursor: pointer;
+    }
+    input {
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        font-size: 30px;
+        border-radius: 35px;
+    }
+    img {
+        width: 100%;
+    }
+</style>
+<img src="logo.jpg">
+<table>
+    <tr>
+        <td id="n1"></td>
+        <td>+</td>
+        <td id="n2"></td>
+        <td>=</td>
+        <td><input id="resposta" /></td>
+    </tr>
+</table>
+<button onclick="verificar()">verificar</button>
+<a href="index.html">reiniciar</a>
+<script>
+    const numero1 = sorteiaNumero()
+    const numero2 = sorteiaNumero()
+    const resultado = numero1 + numero2
+
+    document.getElementById('n1').innerText = numero1
+    document.getElementById('n2').innerText = numero2
+
+    function verificar() {
+        const resposta = +document.getElementById("resposta").value
+        const ganhou = resposta == resultado
+
+        if (ganhou) {
+            alert("ACERTOU!")
+        } else {
+            alert("PERDEU!")
+        }
+    }
+
+    function sorteiaNumero() {
+        return Math.floor(Math.random() * 10) + 1;
+    }
+</script>
